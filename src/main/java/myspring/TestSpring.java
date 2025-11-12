@@ -10,5 +10,6 @@ public class TestSpring {
     TestBean tetsBean = context.getBean("testBean", TestBean.class);
     System.out.println(tetsBean.getName());
     context.close();
+    ///  для истории
   }
 }
