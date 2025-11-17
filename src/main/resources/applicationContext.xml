@@ -12,14 +12,10 @@
   <bean id="relaxMusic" class="myspring.RelaxMusic"/>
   <bean id="rockMusic" class="myspring.RockMusic"/>
 
-  <bean id="musicPlayer" class="myspring.MusicPlayer">
-    <constructor-arg>
-      <list>
-        <ref bean="classicalMusic"/>
-        <ref bean="relaxMusic"/>
-        <ref bean="rockMusic"/>
-      </list>
-    </constructor-arg>
+  <bean id="musicPlayer"
+    class="myspring.MusicPlayer"
+    scope="prototype"
+  >
     <property name="name" value="${musicPlayer.name}"/>
     <property name="volume" value="${musicPlayer.volume}"/>
   </bean>
