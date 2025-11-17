@@ -8,17 +8,23 @@
   http://www.springframework.org/schema/context/spring-context.xsd">
 
   <context:property-placeholder location="classpath:musicPlayer.properties"/>
-  <bean id="classicalMusic" class="myspring.ClassicalMusic"/>
-  <bean id="relaxMusic" class="myspring.RelaxMusic"/>
-  <bean id="rockMusic" class="myspring.RockMusic"/>
+  <bean id="musicBean" class="myspring.ClassicalMusic"
+    init-method="doMyInit"
+    destroy-method="doMyDestroy"
+    factory-method="getClassicalMusic">
 
-  <bean id="musicPlayer"
-    class="myspring.MusicPlayer"
-    scope="prototype"
-  >
-    <property name="name" value="${musicPlayer.name}"/>
-    <property name="volume" value="${musicPlayer.volume}"/>
   </bean>
+  <!--  <bean id="classicalMusic" class="myspring.ClassicalMusic"/>
+    <bean id="relaxMusic" class="myspring.RelaxMusic"/>
+    <bean id="rockMusic" class="myspring.RockMusic"/>-->
+
+  <!--  <bean id="musicPlayer"
+      class="myspring.MusicPlayer"
+      scope="prototype"
+    >
+      <property name="name" value="${musicPlayer.name}"/>
+      <property name="volume" value="${musicPlayer.volume}"/>
+    </bean>-->
 
 </beans>
 
