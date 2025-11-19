@@ -1,5 +1,6 @@
 package myspring;
 
+import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,6 @@ public class Computer {
 
   @Override
   public String toString() {
-    return "Computer " + id + " " + musicPlayer.playMusic();
+    return "Computer " + id + " " + musicPlayer.playMusic(Genres.values()[new Random().nextInt(Genres.values().length)]);
   }
 }
