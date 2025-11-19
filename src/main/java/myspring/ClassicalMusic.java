@@ -2,10 +2,22 @@ package myspring;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ClassicalMusic implements Music {
+
+  @PostConstruct
+  public void doMyInit() {
+    System.out.println("Do init");
+  }
+
+  @PreDestroy
+  public void doMyDestroy() {
+    System.out.println("Do my destroy");
+  }
 
   @Override
   public ArrayList<String> getSong() {

@@ -1,18 +1,39 @@
 package myspring;
 
-import static myspring.Genres.CLASSICAL;
-import static myspring.Genres.ROCK;
-
-import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
 
+  @Value("${musicPlayer.name}")
+  private String name;
+
+  @Value("${musicPlayer.volume}")
+  private String volume;
+
   private Music music1;
   private Music music2;
+
+  public String getVolume() {
+    return volume;
+  }
+
+  public void setVolume(String volume) {
+    this.volume = volume;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
 
   @Autowired
   public MusicPlayer(@Qualifier("classicalMusic") Music music1,
@@ -22,15 +43,6 @@ public class MusicPlayer {
   }
 
   public String playMusic(Genres genre) {
-    String result = "";
-    Random random = new Random();
-    if (genre.equals(CLASSICAL)) {
-      int randomIndex = random.nextInt(music1.getSong().size());
-      result = music1.getSong().get(randomIndex);
-    } else if (genre.equals(ROCK)) {
-      int randomIndex = random.nextInt(music2.getSong().size());
-      result = music2.getSong().get(randomIndex);
-    }
-    return "Playing: " + result;
+    return "Playing: " + music1.getSong() + ", " + music2.getSong();
   }
 }
