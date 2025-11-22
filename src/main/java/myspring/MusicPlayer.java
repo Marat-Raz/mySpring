@@ -31,8 +31,6 @@ public class MusicPlayer {
     this.name = name;
   }
 
-
-
   //@Autowired
   public MusicPlayer(@Qualifier("classicalMusic") Music music1,
       @Qualifier("rockMusic") Music music2) {
