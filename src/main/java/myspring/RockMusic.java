@@ -2,9 +2,8 @@ package myspring;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class RockMusic implements Music {
 
   @Override

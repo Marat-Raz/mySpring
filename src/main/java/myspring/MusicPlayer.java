@@ -1,11 +1,9 @@
 package myspring;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class MusicPlayer {
 
   @Value("${musicPlayer.name}")
@@ -35,7 +33,7 @@ public class MusicPlayer {
 
 
 
-  @Autowired
+  //@Autowired
   public MusicPlayer(@Qualifier("classicalMusic") Music music1,
       @Qualifier("rockMusic") Music music2) {
     this.music1 = music1;

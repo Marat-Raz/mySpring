@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class ClassicalMusic implements Music {
 
   @PostConstruct
